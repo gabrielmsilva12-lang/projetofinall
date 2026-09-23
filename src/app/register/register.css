@@ -1,0 +1,145 @@
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background: #f4f7fb;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.tag {
+  font-size: 13px;
+  font-weight: bold;
+  color: #0066cc;
+  letter-spacing: 1px;
+}
+
+.register-header h1 {
+  margin: 10px 0;
+  font-size: 32px;
+}
+
+.register-header p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #0066cc;
+}
+
+form button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #0066cc;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #0052a3;
+}
+
+.mensagem {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.mensagem.erro {
+  color: #d32f2f;
+}
+
+.mensagem.sucesso {
+  color: #2e7d32;
+}
+
+.login-link {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.login-link p {
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.login-link a {
+  color: #0066cc;
+  font-weight: bold;
+  text-decoration: none;
+}
+.termos {
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.termos label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.termos input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.termos strong {
+  font-weight: bold;
+}
+
+.termos a {
+  color: #0066cc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.termos a:hover {
+  text-decoration: underline;
+}

@@ -1,1 +1,132 @@
-<p>register works!</p>
+<main class="register-page">
+
+  <div class="register-card">
+
+    <div class="register-header">
+
+      <span class="tag">
+        ELDERENGLISH
+      </span>
+
+      <h1>Criar conta</h1>
+
+      <p>
+        Crie sua conta para acessar todo o conteúdo
+        do ElderEnglish.
+      </p>
+
+    </div>
+
+    <form (ngSubmit)="cadastrar()">
+
+      <div class="form-group">
+
+        <label for="nome">Nome</label>
+
+        <input
+          id="nome"
+          type="text"
+          name="nome"
+          [(ngModel)]="nome"
+          placeholder="Digite seu nome"
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="email">E-mail</label>
+
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Digite seu e-mail"
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="senha">Senha</label>
+
+        <input
+          id="senha"
+          type="password"
+          name="senha"
+          [(ngModel)]="senha"
+          placeholder="Digite uma senha"
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="confirmarSenha">
+          Confirmar senha
+        </label>
+
+        <input
+          id="confirmarSenha"
+          type="password"
+          name="confirmarSenha"
+          [(ngModel)]="confirmarSenha"
+          placeholder="Digite a senha novamente"
+        >
+
+      </div>
+
+      <div class="termos">
+
+        <label>
+
+          <input
+            type="checkbox"
+            name="aceitouTermos"
+            [(ngModel)]="aceitouTermos"
+          >
+
+          <span>
+            Li e aceito os
+            <strong>Termos de Uso</strong>
+            e a
+            <a routerLink="/privacy">
+              Política de Privacidade
+            </a>.
+          </span>
+
+        </label>
+
+      </div>
+
+      <button type="submit">
+        Criar conta
+      </button>
+
+      <p
+        class="mensagem"
+        [class.erro]="tipoMensagem === 'erro'"
+        [class.sucesso]="tipoMensagem === 'sucesso'"
+        *ngIf="mensagem"
+      >
+        {{ mensagem }}
+      </p>
+
+    </form>
+
+    <div class="login-link">
+
+      <p>
+        Já possui uma conta?
+      </p>
+
+      <a routerLink="/login">
+        Entrar na minha conta
+      </a>
+
+    </div>
+
+  </div>
+
+</main>

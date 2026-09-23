@@ -20,15 +20,52 @@ export class Login {
 
   entrar(): void {
 
-    if (this.email.trim() === '' || this.senha.trim() === '') {
+    if (
+      this.email.trim() === '' ||
+      this.senha.trim() === ''
+    ) {
       this.mensagem = 'Preencha todos os campos.';
       return;
     }
 
-    localStorage.setItem('usuarioLogado', 'true');
-    localStorage.setItem('usuarioEmail', this.email);
+    const usuarioSalvo = localStorage.getItem('usuario');
 
-    this.router.navigate(['/english']);
+    if (!usuarioSalvo) {
+      this.mensagem =
+        'Nenhuma conta encontrada. Crie uma conta primeiro.';
+      return;
+    }
+
+    const usuario = JSON.parse(usuarioSalvo);
+
+    if (
+      this.email === usuario.email &&
+      this.senha === usuario.senha
+    ) {
+
+      localStorage.setItem(
+        'usuarioLogado',
+        'true'
+      );
+
+      localStorage.setItem(
+        'usuarioEmail',
+        usuario.email
+      );
+
+      localStorage.setItem(
+        'usuarioNome',
+        usuario.nome
+      );
+
+      this.router.navigate(['/english']);
+
+    } else {
+
+      this.mensagem =
+        'E-mail ou senha incorretos.';
+
+    }
   }
 
 }
