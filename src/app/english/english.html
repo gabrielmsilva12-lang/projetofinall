@@ -1,0 +1,187 @@
+<main class="english-page">
+
+  <header class="english-header">
+    <div>
+      <span class="tag">ELDERENGLISH</span>
+
+      <h1>Aprenda inglês para a vida real</h1>
+
+      <p>
+        Aprenda frases úteis para viagens, restaurantes,
+        hotéis e conversas do dia a dia.
+      </p>
+    </div>
+  </header>
+
+
+  <section class="lesson-selector">
+
+    <h2>Escolha uma aula</h2>
+
+    <div class="lesson-buttons">
+
+      <button
+        *ngFor="let lesson of lessons; let i = index"
+        [class.active]="currentLesson === i"
+        (click)="goToLesson(i)"
+      >
+        <span>{{ lesson.icon }}</span>
+
+        {{ lesson.title }}
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-content">
+
+    <div class="lesson-intro">
+
+      <span class="category">
+        {{ lessons[currentLesson].category }}
+      </span>
+
+      <h2>
+        {{ lessons[currentLesson].icon }}
+        {{ lessons[currentLesson].title }}
+      </h2>
+
+      <p>
+        {{ lessons[currentLesson].description }}
+      </p>
+
+    </div>
+
+
+    <div
+      class="phrase-section"
+      *ngFor="let section of lessons[currentLesson].sections"
+    >
+
+      <h3>
+        {{ section.title }}
+      </h3>
+
+
+      <div class="phrase-list">
+
+        <div
+          class="phrase-card"
+          *ngFor="
+            let phrase of section.phrases;
+            let i = index
+          "
+          [hidden]="!estaLogado && i >= frasesGratis"
+        >
+
+          <div class="phrase-text">
+
+            <h4>
+              {{ phrase.english }}
+            </h4>
+
+            <p>
+              {{ phrase.portuguese }}
+            </p>
+
+          </div>
+
+
+          <button
+            class="audio-button"
+            (click)="ouvirPronuncia(phrase.english)"
+          >
+            🔊 Ouvir
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- Mensagem para quem não está logado -->
+
+      <div
+        class="login-lock"
+        *ngIf="!estaLogado && section.phrases.length > frasesGratis"
+      >
+
+        <div class="lock-icon">
+          🔒
+        </div>
+
+        <div>
+
+          <h4>
+            Quer aprender mais?
+          </h4>
+
+          <p>
+            Faça login para desbloquear todas as frases
+            desta aula.
+          </p>
+
+          <a routerLink="/login">
+            Entrar na minha conta
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-navigation">
+
+    <button
+      (click)="previousLesson()"
+      [disabled]="currentLesson === 0"
+    >
+      ← Aula anterior
+    </button>
+
+
+    <span>
+      Aula {{ currentLesson + 1 }}
+      de {{ lessons.length }}
+    </span>
+
+
+    <button
+      (click)="nextLesson()"
+      [disabled]="currentLesson === lessons.length - 1"
+    >
+      Próxima aula →
+    </button>
+
+  </section>
+
+
+  <!-- Mensagem de acesso -->
+
+  <section
+    class="access-message"
+    *ngIf="!estaLogado"
+  >
+
+    <h2>
+      🔓 Continue aprendendo
+    </h2>
+
+    <p>
+      Você está vendo algumas frases gratuitamente.
+      Faça login para ter acesso a todo o conteúdo do ElderEnglish.
+    </p>
+
+    <a routerLink="/login">
+      Entrar
+    </a>
+
+  </section>
+
+</main>

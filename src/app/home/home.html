@@ -1,0 +1,740 @@
+<header class="header">
+
+  <div class="logo">
+    Elder<span>English</span>
+  </div>
+
+  <nav class="menu">
+    <a href="#inicio">Início</a>
+    <a href="#aprender">Aprender</a>
+    <a href="#tecnologia">Tecnologia</a>
+    <a href="#seguranca">Segurança</a>
+  </nav>
+
+  <a
+    class="profile-button"
+    routerLink="/login"
+  >
+    Minha conta
+  </a>
+
+</header>
+
+
+<main>
+
+  <!-- =====================================
+       HERO
+  ====================================== -->
+
+  <section
+    class="hero"
+    id="inicio"
+  >
+
+    <div class="hero-content">
+
+      <span class="hero-label">
+        INGLÊS + TECNOLOGIA
+      </span>
+
+      <h1>
+        Aprenda inglês.
+        <span>Use a tecnologia.</span>
+        Tenha mais autonomia.
+      </h1>
+
+      <p>
+        O ElderEnglish ensina inglês, tecnologia e segurança
+        digital de forma simples, prática e passo a passo.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          class="primary-button"
+          routerLink="/english"
+        >
+          Começar agora
+        </a>
+
+        <a
+          class="secondary-button"
+          href="#aprender"
+        >
+          Conhecer o projeto
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+      <div class="hero-main-card">
+
+        <div class="hero-icon">
+          🌎
+        </div>
+
+        <div>
+
+          <strong>
+            Aprenda no seu ritmo
+          </strong>
+
+          <p>
+            Inglês e tecnologia sem complicação.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="floating-card card-one">
+        🇺🇸 Inglês
+      </div>
+
+      <div class="floating-card card-two">
+        📱 Tecnologia
+      </div>
+
+      <div class="floating-card card-three">
+        🔒 Segurança
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       AVALIAÇÕES
+  ====================================== -->
+
+  <section class="testimonials-section">
+
+    <div class="section-title">
+
+      <span class="section-label">
+        EXPERIÊNCIAS
+      </span>
+
+      <h2>
+        Quem aprende com o ElderEnglish
+      </h2>
+
+      <p>
+        Aprender pode ser simples quando a tecnologia
+        é explicada de forma clara.
+      </p>
+
+    </div>
+
+
+    <div class="testimonial-carousel">
+
+      <button
+        class="testimonial-arrow"
+        (click)="previousTestimonial()"
+        aria-label="Avaliação anterior"
+      >
+        ←
+      </button>
+
+
+      <div class="testimonial-stage">
+
+        <article
+          class="testimonial-card"
+          *ngFor="let testimonial of testimonials; let i = index"
+          [class.active]="i === testimonialSlide"
+        >
+
+          <div class="testimonial-photo-area">
+
+            <div class="testimonial-photo-wrapper">
+
+              <img
+                class="testimonial-photo"
+                [src]="testimonial.image"
+                [alt]="testimonial.name"
+              >
+
+              <span class="testimonial-online"></span>
+
+            </div>
+
+          </div>
+
+
+          <div class="testimonial-content">
+
+            <div class="testimonial-rating">
+              ★★★★★
+            </div>
+
+            <div class="testimonial-quote">
+              “
+            </div>
+
+            <p class="testimonial-text">
+              {{ testimonial.text }}
+            </p>
+
+            <div class="testimonial-person">
+
+              <h3>
+                {{ testimonial.name }}
+              </h3>
+
+              <p>
+                {{ testimonial.role }}
+              </p>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <button
+        class="testimonial-arrow"
+        (click)="nextTestimonial()"
+        aria-label="Próxima avaliação"
+      >
+        →
+      </button>
+
+    </div>
+
+
+    <div class="testimonial-indicators">
+
+      <button
+        *ngFor="let testimonial of testimonials; let i = index"
+        class="testimonial-indicator"
+        [class.active]="i === testimonialSlide"
+        (click)="goToTestimonial(i)"
+        [attr.aria-label]="'Avaliação ' + (i + 1)"
+      ></button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       APRENDER
+  ====================================== -->
+
+  <section
+    class="features-section"
+    id="aprender"
+  >
+
+    <div class="section-title">
+
+      <span class="section-label">
+        O QUE VOCÊ PODE FAZER
+      </span>
+
+      <h2>
+        Aprenda de um jeito simples
+      </h2>
+
+      <p>
+        Escolha uma área e comece a aprender.
+      </p>
+
+    </div>
+
+
+    <div class="features-grid">
+
+
+      <!-- INGLÊS -->
+
+      <article class="feature-card">
+
+        <div class="feature-icon">
+          🇺🇸
+        </div>
+
+        <h3>
+          Inglês
+        </h3>
+
+        <p>
+          Aprenda frases e expressões úteis
+          para situações do dia a dia.
+        </p>
+
+        <a routerLink="/english">
+          Aprender inglês →
+        </a>
+
+      </article>
+
+
+      <!-- TECNOLOGIA -->
+
+      <article class="feature-card">
+
+        <div class="feature-icon">
+          📱
+        </div>
+
+        <h3>
+          Tecnologia
+        </h3>
+
+        <p>
+          Aprenda a usar ferramentas digitais
+          de maneira simples.
+        </p>
+
+        <a routerLink="/tutorials">
+          Ver tutoriais →
+        </a>
+
+      </article>
+
+
+      <!-- IA -->
+
+      <article class="feature-card">
+
+        <div class="feature-icon">
+          🤖
+        </div>
+
+        <h3>
+          IA sem complicação
+        </h3>
+
+        <p>
+          Entenda o que é inteligência artificial
+          e como utilizá-la.
+        </p>
+
+        <a routerLink="/tutorials">
+          Conhecer IA →
+        </a>
+
+      </article>
+
+
+      <!-- SEGURANÇA -->
+
+      <article class="feature-card">
+
+        <div class="feature-icon">
+          🔒
+        </div>
+
+        <h3>
+          Segurança digital
+        </h3>
+
+        <p>
+          Aprenda a proteger seus dados
+          e navegar com mais segurança.
+        </p>
+
+        <a routerLink="/privacy">
+          Ver segurança →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       INGLÊS + TECNOLOGIA
+  ====================================== -->
+
+  <section
+    class="technology-section"
+    id="tecnologia"
+  >
+
+    <div class="technology-text">
+
+      <span class="section-label">
+        INGLÊS + TECNOLOGIA
+      </span>
+
+      <h2>
+        O inglês também faz parte
+        do mundo digital.
+      </h2>
+
+      <p>
+        Aprenda uma frase, entenda seu significado
+        e descubra como utilizá-la em situações reais
+        com tecnologia.
+      </p>
+
+      <a
+        class="primary-button"
+        routerLink="/tutorials"
+      >
+        Ver tutoriais
+      </a>
+
+    </div>
+
+
+    <div class="technology-example">
+
+      <div class="example-number">
+        01
+      </div>
+
+      <span>
+        FRASE
+      </span>
+
+      <h3>
+        "How are you?"
+      </h3>
+
+      <p>
+        Como você está?
+      </p>
+
+      <div class="example-line"></div>
+
+      <small>
+        Ouça • Entenda • Pratique
+      </small>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       CARROSSEL DE INGLÊS
+  ====================================== -->
+
+  <section class="english-section">
+
+    <div class="section-title">
+
+      <span class="section-label">
+        APRENDA NA PRÁTICA
+      </span>
+
+      <h2>
+        Inglês para situações reais
+      </h2>
+
+      <p>
+        Frases que você pode realmente utilizar.
+      </p>
+
+    </div>
+
+
+    <div class="english-carousel">
+
+      <button
+        class="carousel-arrow"
+        (click)="previousSlide()"
+      >
+        ←
+      </button>
+
+
+      <div class="english-card">
+
+        <div class="english-icon">
+          {{ slides[currentSlide].icon }}
+        </div>
+
+        <div class="english-content">
+
+          <span class="card-category">
+            {{ slides[currentSlide].category }}
+          </span>
+
+          <h3>
+            {{ slides[currentSlide].title }}
+          </h3>
+
+          <strong>
+            {{ slides[currentSlide].phrase }}
+          </strong>
+
+          <p>
+            {{ slides[currentSlide].translation }}
+          </p>
+
+          <button class="audio-button">
+            🔊 Ouvir pronúncia
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="carousel-arrow"
+        (click)="nextSlide()"
+      >
+        →
+      </button>
+
+    </div>
+
+
+    <div class="carousel-indicators">
+
+      <button
+        *ngFor="let slide of slides; let i = index"
+        class="indicator"
+        [class.active]="i === currentSlide"
+        (click)="goToSlide(i)"
+      ></button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       SEGURANÇA
+  ====================================== -->
+
+  <section
+    class="security-section"
+    id="seguranca"
+  >
+
+    <div class="security-icon">
+      🔐
+    </div>
+
+    <div class="security-content">
+
+      <span class="section-label">
+        SEGURANÇA DIGITAL
+      </span>
+
+      <h2>
+        Seus dados também precisam
+        de proteção.
+      </h2>
+
+      <p>
+        Entenda dados pessoais, golpes, privacidade
+        e seus direitos de forma simples.
+      </p>
+
+      <div class="security-list">
+
+        <span>
+          ✓ Dados pessoais
+        </span>
+
+        <span>
+          ✓ Segurança na internet
+        </span>
+
+        <span>
+          ✓ LGPD
+        </span>
+
+      </div>
+
+      <a
+        class="primary-button"
+        routerLink="/privacy"
+      >
+        Conhecer meus direitos
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       PROGRESSO
+  ====================================== -->
+
+  <section class="progress-section">
+
+    <div class="section-title">
+
+      <span class="section-label">
+        SEU PROGRESSO
+      </span>
+
+      <h2>
+        Continue evoluindo.
+      </h2>
+
+      <p>
+        Acompanhe o que você já aprendeu.
+      </p>
+
+    </div>
+
+
+    <div class="progress-card">
+
+      <div class="progress-item">
+
+        <div class="progress-header">
+
+          <span>
+            🇺🇸 Inglês
+          </span>
+
+          <strong>
+            40%
+          </strong>
+
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress-fill english-progress"
+          ></div>
+        </div>
+
+      </div>
+
+
+      <div class="progress-item">
+
+        <div class="progress-header">
+
+          <span>
+            📱 Tecnologia
+          </span>
+
+          <strong>
+            25%
+          </strong>
+
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress-fill technology-progress"
+          ></div>
+        </div>
+
+      </div>
+
+
+      <div class="progress-item">
+
+        <div class="progress-header">
+
+          <span>
+            🔒 Segurança
+          </span>
+
+          <strong>
+            40%
+          </strong>
+
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress-fill security-progress"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       PREMIUM
+  ====================================== -->
+
+  <section class="premium-section">
+
+    <div>
+
+      <span class="premium-label">
+        ELDERENGLISH PREMIUM
+      </span>
+
+      <h2>
+        Aprenda ainda mais.
+      </h2>
+
+      <p>
+        Aulas extras, quizzes e conteúdos exclusivos.
+      </p>
+
+    </div>
+
+    <a
+      class="premium-button"
+      routerLink="/premium"
+    >
+      Conhecer Premium
+    </a>
+
+  </section>
+
+</main>
+
+
+<!-- =====================================
+     FOOTER
+====================================== -->
+
+<footer class="footer">
+
+  <div class="footer-logo">
+    Elder<span>English</span>
+  </div>
+
+  <p>
+    Inglês e tecnologia de forma simples e acessível.
+  </p>
+
+  <div class="footer-links">
+
+    <a routerLink="/privacy">
+      Privacidade
+    </a>
+
+    <a routerLink="/privacy">
+      LGPD
+    </a>
+
+    <a href="#">
+      Termos de uso
+    </a>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 ElderEnglish
+  </div>
+
+</footer>
