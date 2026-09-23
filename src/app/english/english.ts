@@ -16,6 +16,8 @@ export class English implements OnInit {
 
   frasesGratis = 3;
 
+  aulasConcluidas: boolean[] = [];
+
   lessons = [
     {
       title: 'Inglês para viagem',
@@ -146,7 +148,7 @@ export class English implements OnInit {
             },
             {
               english: 'Could I have the bill, please?',
-              portuguese: 'Eu poderia receber a conta, por favor?'
+              portuguese: 'Eu poderia receber a conta, por favor.'
             },
             {
               english: 'Can I pay by card?',
@@ -277,33 +279,114 @@ export class English implements OnInit {
   ];
 
   ngOnInit(): void {
+
     this.estaLogado =
       localStorage.getItem('usuarioLogado') === 'true';
+
+    const progressoSalvo =
+      localStorage.getItem('progressoAulas');
+
+    if (progressoSalvo) {
+
+      const progresso = JSON.parse(progressoSalvo);
+
+      if (
+        Array.isArray(progresso) &&
+        progresso.length === this.lessons.length
+      ) {
+        this.aulasConcluidas = progresso;
+      } else {
+        this.aulasConcluidas =
+          this.lessons.map(() => false);
+      }
+
+    } else {
+
+      this.aulasConcluidas =
+        this.lessons.map(() => false);
+
+    }
   }
 
   nextLesson(): void {
+
     if (this.currentLesson < this.lessons.length - 1) {
       this.currentLesson++;
     }
+
   }
 
   previousLesson(): void {
+
     if (this.currentLesson > 0) {
       this.currentLesson--;
     }
+
   }
 
   goToLesson(index: number): void {
+
     this.currentLesson = index;
+
+  }
+
+  marcarAulaComoConcluida(): void {
+
+    this.aulasConcluidas[this.currentLesson] = true;
+
+    this.salvarProgresso();
+
+  }
+
+  desmarcarAula(): void {
+
+    this.aulasConcluidas[this.currentLesson] = false;
+
+    this.salvarProgresso();
+
+  }
+
+  salvarProgresso(): void {
+
+    localStorage.setItem(
+      'progressoAulas',
+      JSON.stringify(this.aulasConcluidas)
+    );
+
+  }
+
+  get aulasConcluidasQuantidade(): number {
+
+    return this.aulasConcluidas.filter(
+      concluida => concluida
+    ).length;
+
+  }
+
+  get porcentagem(): number {
+
+    if (this.lessons.length === 0) {
+      return 0;
+    }
+
+    return Math.round(
+      (this.aulasConcluidasQuantidade /
+        this.lessons.length) * 100
+    );
+
   }
 
   ouvirPronuncia(frase: string): void {
-    const fala = new SpeechSynthesisUtterance(frase);
+
+    const fala =
+      new SpeechSynthesisUtterance(frase);
 
     fala.lang = 'en-US';
     fala.rate = 0.8;
 
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(fala);
+
   }
+
 }

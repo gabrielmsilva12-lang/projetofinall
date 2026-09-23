@@ -1,22 +1,77 @@
 <main class="english-page">
 
   <header class="english-header">
-    <div>
-      <span class="tag">ELDERENGLISH</span>
 
-      <h1>Aprenda inglês para a vida real</h1>
+    <div>
+
+      <span class="tag">
+        ELDERENGLISH
+      </span>
+
+      <h1>
+        Aprenda inglês para a vida real
+      </h1>
 
       <p>
         Aprenda frases úteis para viagens, restaurantes,
         hotéis e conversas do dia a dia.
       </p>
+
     </div>
+
   </header>
 
 
+  <!-- PROGRESSO -->
+
+  <section class="progress-summary">
+
+    <div class="progress-header">
+
+      <div>
+
+        <span class="tag">
+          SEU PROGRESSO
+        </span>
+
+        <h2>
+          Continue aprendendo
+        </h2>
+
+        <p>
+          {{ aulasConcluidasQuantidade }}
+          de
+          {{ lessons.length }}
+          aulas concluídas
+        </p>
+
+      </div>
+
+      <strong>
+        {{ porcentagem }}%
+      </strong>
+
+    </div>
+
+    <div class="progress-bar">
+
+      <div
+        class="progress-fill"
+        [style.width.%]="porcentagem"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ESCOLHA DA AULA -->
+
   <section class="lesson-selector">
 
-    <h2>Escolha uma aula</h2>
+    <h2>
+      Escolha uma aula
+    </h2>
 
     <div class="lesson-buttons">
 
@@ -25,15 +80,27 @@
         [class.active]="currentLesson === i"
         (click)="goToLesson(i)"
       >
-        <span>{{ lesson.icon }}</span>
+
+        <span>
+          {{ lesson.icon }}
+        </span>
 
         {{ lesson.title }}
+
+        <small
+          *ngIf="aulasConcluidas[i]"
+        >
+          ✓ Concluída
+        </small>
+
       </button>
 
     </div>
 
   </section>
 
+
+  <!-- CONTEÚDO DA AULA -->
 
   <section class="lesson-content">
 
@@ -57,13 +124,14 @@
 
     <div
       class="phrase-section"
-      *ngFor="let section of lessons[currentLesson].sections"
+      *ngFor="
+        let section of lessons[currentLesson].sections
+      "
     >
 
       <h3>
         {{ section.title }}
       </h3>
-
 
       <div class="phrase-list">
 
@@ -73,7 +141,10 @@
             let phrase of section.phrases;
             let i = index
           "
-          [hidden]="!estaLogado && i >= frasesGratis"
+          [hidden]="
+            !estaLogado &&
+            i >= frasesGratis
+          "
         >
 
           <div class="phrase-text">
@@ -88,7 +159,6 @@
 
           </div>
 
-
           <button
             class="audio-button"
             (click)="ouvirPronuncia(phrase.english)"
@@ -101,11 +171,14 @@
       </div>
 
 
-      <!-- Mensagem para quem não está logado -->
+      <!-- BLOQUEIO PARA QUEM NÃO ESTÁ LOGADO -->
 
       <div
         class="login-lock"
-        *ngIf="!estaLogado && section.phrases.length > frasesGratis"
+        *ngIf="
+          !estaLogado &&
+          section.phrases.length > frasesGratis
+        "
       >
 
         <div class="lock-icon">
@@ -119,8 +192,8 @@
           </h4>
 
           <p>
-            Faça login para desbloquear todas as frases
-            desta aula.
+            Faça login para desbloquear todas
+            as frases desta aula.
           </p>
 
           <a routerLink="/login">
@@ -133,8 +206,68 @@
 
     </div>
 
+
+    <!-- CONCLUIR AULA -->
+
+    <div class="lesson-completion">
+
+      <div *ngIf="!aulasConcluidas[currentLesson]">
+
+        <h3>
+          Terminou esta aula?
+        </h3>
+
+        <p>
+          Marque a aula como concluída para
+          acompanhar seu progresso.
+        </p>
+
+        <button
+          class="complete-button"
+          (click)="marcarAulaComoConcluida()"
+        >
+          ✓ Marcar aula como concluída
+        </button>
+
+      </div>
+
+
+      <div
+        class="completed-message"
+        *ngIf="aulasConcluidas[currentLesson]"
+      >
+
+        <span class="completed-icon">
+          ✓
+        </span>
+
+        <div>
+
+          <h3>
+            Aula concluída!
+          </h3>
+
+          <p>
+            Você já concluiu esta aula.
+          </p>
+
+          <button
+            class="undo-button"
+            (click)="desmarcarAula()"
+          >
+            Desmarcar conclusão
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
+
+  <!-- NAVEGAÇÃO ENTRE AS AULAS -->
 
   <section class="lesson-navigation">
 
@@ -145,16 +278,18 @@
       ← Aula anterior
     </button>
 
-
     <span>
-      Aula {{ currentLesson + 1 }}
-      de {{ lessons.length }}
+      Aula
+      {{ currentLesson + 1 }}
+      de
+      {{ lessons.length }}
     </span>
-
 
     <button
       (click)="nextLesson()"
-      [disabled]="currentLesson === lessons.length - 1"
+      [disabled]="
+        currentLesson === lessons.length - 1
+      "
     >
       Próxima aula →
     </button>
@@ -162,7 +297,42 @@
   </section>
 
 
-  <!-- Mensagem de acesso -->
+  <!-- QUIZ -->
+
+  <section class="quiz-section">
+
+    <div class="quiz-icon">
+      📝
+    </div>
+
+    <div class="quiz-content">
+
+      <span class="tag">
+        TESTE SEUS CONHECIMENTOS
+      </span>
+
+      <h2>
+        Está pronto para testar seu inglês?
+      </h2>
+
+      <p>
+        Depois de estudar as aulas, faça o quiz
+        para testar o que você aprendeu.
+      </p>
+
+      <a
+        routerLink="/quiz"
+        class="quiz-button"
+      >
+        Fazer o quiz →
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ACESSO PARA QUEM NÃO ESTÁ LOGADO -->
 
   <section
     class="access-message"
@@ -175,7 +345,8 @@
 
     <p>
       Você está vendo algumas frases gratuitamente.
-      Faça login para ter acesso a todo o conteúdo do ElderEnglish.
+      Faça login para ter acesso a todo o conteúdo
+      do ElderEnglish.
     </p>
 
     <a routerLink="/login">
@@ -183,5 +354,6 @@
     </a>
 
   </section>
+
 
 </main>

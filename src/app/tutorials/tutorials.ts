@@ -19,62 +19,80 @@ export class Tutorials {
 
     {
       icone: '🤖',
-      titulo: 'Inteligência Artificial',
-      descricao: 'Aprenda a utilizar ferramentas de inteligência artificial para estudar, conversar e realizar tarefas.',
+      titulo: 'Conversar com IA',
+
+      descricao:
+        'Aprenda a usar ferramentas de inteligência artificial para praticar conversação em inglês.',
+
       passos: [
         'Abra uma ferramenta de inteligência artificial.',
-        'Escreva ou fale o que você precisa.',
-        'Faça perguntas usando uma linguagem simples e direta.',
-        'Peça para a inteligência artificial explicar algo de outra maneira quando não entender.',
-        'Use a IA para praticar conversação em inglês.',
-        'Sempre confira informações importantes antes de tomar decisões.'
+        'Inicie uma nova conversa.',
+        'Escreva uma mensagem em inglês para começar a conversa.',
+        'Conte para a IA que você está praticando inglês.',
+        'Peça para a IA corrigir seus erros quando necessário.',
+        'Faça perguntas sobre palavras ou frases que você não conhece.'
       ],
-      exemplo: 'Você pode dizer: "Let’s practice English. Speak slowly and correct my mistakes, please."'
+
+      exemplo:
+        'Experimente escrever: "Let’s practice English. Ask me questions about my day."',
+
+      videoTitulo:
+        'Como usar a IA para praticar inglês',
+
+      videoDescricao:
+        'Veja como utilizar uma ferramenta de inteligência artificial para conversar e praticar inglês.'
+    },
+
+    {
+      icone: '📱',
+      titulo: 'Aplicativos de conversação',
+
+      descricao:
+        'Aprenda a encontrar e utilizar aplicativos que ajudam você a praticar inglês conversando.',
+
+      passos: [
+        'Abra a loja de aplicativos do seu celular.',
+        'Pesquise por aplicativos de conversação em inglês.',
+        'Leia a descrição do aplicativo antes de instalar.',
+        'Baixe o aplicativo escolhido.',
+        'Crie sua conta quando for necessário.',
+        'Procure a área de conversação para começar a praticar.'
+      ],
+
+      exemplo:
+        'Procure por aplicativos que tenham recursos de conversação em inglês e confira as avaliações antes de instalar.',
+
+      videoTitulo:
+        'Como usar aplicativos para praticar inglês',
+
+      videoDescricao:
+        'Aprenda os passos básicos para encontrar, instalar e utilizar aplicativos de conversação.'
     },
 
     {
       icone: '▶️',
-      titulo: 'Aprender com vídeos',
-      descricao: 'Use o YouTube para assistir conteúdos em inglês e aprender novas palavras.',
+      titulo: 'YouTube em inglês',
+
+      descricao:
+        'Aprenda a utilizar o YouTube para encontrar vídeos em inglês e transformar seus momentos de lazer em oportunidades de aprendizado.',
+
       passos: [
         'Abra o YouTube.',
-        'Pesquise vídeos em inglês sobre assuntos que você gosta.',
-        'Ative as legendas em inglês quando estiverem disponíveis.',
-        'Pause o vídeo quando encontrar uma palavra desconhecida.',
-        'Anote palavras e expressões novas.',
-        'Assista novamente ao vídeo para perceber sua evolução.'
+        'Pesquise por vídeos utilizando palavras em inglês.',
+        'Escolha um vídeo sobre um assunto que você goste.',
+        'Ative as legendas quando estiverem disponíveis.',
+        'Pause o vídeo quando encontrar uma frase que queira entender melhor.',
+        'Repita partes do vídeo para praticar as palavras e expressões.'
       ],
-      exemplo: 'Experimente pesquisar: "English conversation for beginners".'
-    },
 
-    {
-      icone: '📧',
-      titulo: 'E-mail',
-      descricao: 'Aprenda os conceitos básicos para enviar e receber mensagens por e-mail.',
-      passos: [
-        'Abra seu aplicativo ou site de e-mail.',
-        'Escolha a opção para criar uma nova mensagem.',
-        'Digite o endereço da pessoa que receberá a mensagem.',
-        'Escreva um assunto que explique o conteúdo do e-mail.',
-        'Digite sua mensagem.',
-        'Confira os dados antes de enviar.'
-      ],
-      exemplo: 'Sempre confira o endereço do destinatário antes de enviar uma mensagem.'
-    },
+      exemplo:
+        'Experimente pesquisar: "English conversation for beginners".',
 
-    {
-      icone: '🔎',
-      titulo: 'Pesquisando na internet',
-      descricao: 'Aprenda a encontrar informações na internet de maneira mais eficiente.',
-      passos: [
-        'Abra seu navegador.',
-        'Digite palavras relacionadas ao que você procura.',
-        'Leia mais de um resultado.',
-        'Observe quem publicou a informação.',
-        'Desconfie de informações muito exageradas.',
-        'Confira a data da publicação quando isso for importante.'
-      ],
-      exemplo: 'Quanto mais específica for sua pesquisa, maiores são as chances de encontrar o que procura.'
+      videoTitulo:
+        'Como aprender inglês com o YouTube',
+
+      videoDescricao:
+        'Aprenda a pesquisar vídeos em inglês e utilizar as legendas para acompanhar o conteúdo.'
     }
 
   ];

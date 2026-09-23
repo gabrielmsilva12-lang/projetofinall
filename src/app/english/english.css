@@ -327,3 +327,258 @@
   border-radius: 8px;
   font-weight: bold;
 }
+/* ==============================
+   PROGRESSO
+================================ */
+
+.progress-summary {
+  width: 100%;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.progress-header h2 {
+  margin: 8px 0 4px;
+}
+
+.progress-header p {
+  margin: 0;
+  color: #64748b;
+}
+
+.progress-header > strong {
+  font-size: 32px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  margin-top: 22px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+
+/* ==============================
+   AULAS CONCLUÍDAS
+================================ */
+
+.lesson-buttons button {
+  position: relative;
+}
+
+.lesson-buttons button small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* ==============================
+   CONCLUSÃO DA AULA
+================================ */
+
+.lesson-completion {
+  margin-top: 35px;
+  padding: 28px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+}
+
+.lesson-completion h3 {
+  margin-top: 0;
+}
+
+.lesson-completion p {
+  color: #64748b;
+}
+
+.complete-button {
+  border: none;
+  border-radius: 10px;
+  padding: 13px 20px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.complete-button:hover {
+  opacity: 0.9;
+}
+
+.completed-message {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.completed-message h3 {
+  margin-bottom: 5px;
+}
+
+.completed-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dcfce7;
+  color: #15803d;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.undo-button {
+  border: none;
+  background: transparent;
+  color: #64748b;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+/* ==============================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 700px) {
+
+  .progress-summary {
+    padding: 22px;
+  }
+
+  .progress-header {
+    align-items: flex-start;
+  }
+
+  .progress-header > strong {
+    font-size: 26px;
+  }
+
+  .completed-message {
+    align-items: flex-start;
+  }
+
+}
+/* ==============================
+   QUIZ
+================================ */
+
+.quiz-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 50px auto 30px;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+.quiz-icon {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eff6ff;
+  border-radius: 16px;
+  font-size: 34px;
+}
+
+.quiz-content {
+  flex: 1;
+}
+
+.quiz-content .tag {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.quiz-content h2 {
+  margin: 0 0 8px;
+  font-size: 25px;
+}
+
+.quiz-content p {
+  margin: 0 0 20px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.quiz-button {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.quiz-button:hover {
+  opacity: 0.9;
+}
+
+
+/* ==============================
+   RESPONSIVO DO QUIZ
+================================ */
+
+@media (max-width: 700px) {
+
+  .quiz-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+  }
+
+  .quiz-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+  .quiz-content h2 {
+    font-size: 22px;
+  }
+
+  .quiz-button {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+}

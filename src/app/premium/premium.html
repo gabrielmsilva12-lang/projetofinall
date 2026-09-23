@@ -1,1 +1,283 @@
-<p>premium works!</p>
+<main class="premium-page">
+
+  <!-- CABEÇALHO -->
+
+  <header class="premium-header">
+
+    <a routerLink="/" class="back-link">
+      ← Voltar para o início
+    </a>
+
+    <span class="tag">
+      ELDERENGLISH PREMIUM
+    </span>
+
+    <h1>
+      Pratique ainda mais o seu inglês
+    </h1>
+
+    <p>
+      Tenha acesso a conteúdos extras para praticar,
+      ampliar seu vocabulário e desenvolver sua conversação.
+    </p>
+
+  </header>
+
+
+  <!-- DESTAQUE -->
+
+  <section class="premium-intro">
+
+    <div class="premium-intro-icon">
+      ⭐
+    </div>
+
+    <div>
+
+      <span class="premium-label">
+        CONTEÚDO EXTRA
+      </span>
+
+      <h2>
+        Mais prática para continuar evoluindo
+      </h2>
+
+      <p>
+        O conteúdo gratuito permite que você aprenda inglês.
+        O Premium oferece ainda mais oportunidades para
+        praticar e aprofundar seus conhecimentos.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SELEÇÃO -->
+
+  <section class="premium-selector">
+
+    <h2>
+      O que você quer praticar?
+    </h2>
+
+    <div class="premium-buttons">
+
+      <button
+        *ngFor="
+          let conteudo of conteudos;
+          let i = index
+        "
+        [class.active]="
+          conteudoSelecionado === i
+        "
+        (click)="selecionarConteudo(i)"
+      >
+
+        <span>
+          {{ conteudo.icone }}
+        </span>
+
+        {{ conteudo.titulo }}
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTEÚDO -->
+
+  <section class="premium-content">
+
+    <div class="content-heading">
+
+      <div class="content-icon">
+
+        {{ conteudos[conteudoSelecionado].icone }}
+
+      </div>
+
+      <div>
+
+        <span class="premium-label">
+          PREMIUM
+        </span>
+
+        <h2>
+          {{ conteudos[conteudoSelecionado].titulo }}
+        </h2>
+
+        <p>
+          {{ conteudos[conteudoSelecionado].descricao }}
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="premium-items">
+
+      <article
+        class="premium-item"
+        *ngFor="
+          let item of
+          conteudos[conteudoSelecionado].itens
+        "
+      >
+
+        <div class="item-lock">
+          🔒
+        </div>
+
+        <div>
+
+          <h3>
+            {{ item.titulo }}
+          </h3>
+
+          <p>
+            {{ item.descricao }}
+          </p>
+
+          <span class="premium-badge">
+            PREMIUM
+          </span>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- BENEFÍCIOS -->
+
+  <section class="benefits">
+
+    <div class="section-title">
+
+      <span class="tag">
+        POR QUE PREMIUM?
+      </span>
+
+      <h2>
+        Continue praticando
+      </h2>
+
+      <p>
+        O Premium foi pensado para quem quer
+        praticar mais e explorar novas situações
+        em inglês.
+      </p>
+
+    </div>
+
+
+    <div class="benefits-grid">
+
+      <article class="benefit-card">
+
+        <span>
+          💬
+        </span>
+
+        <h3>
+          Mais conversação
+        </h3>
+
+        <p>
+          Pratique diálogos completos
+          em situações reais.
+        </p>
+
+      </article>
+
+
+      <article class="benefit-card">
+
+        <span>
+          📚
+        </span>
+
+        <h3>
+          Mais conteúdo
+        </h3>
+
+        <p>
+          Amplie seu vocabulário com
+          novas frases e situações.
+        </p>
+
+      </article>
+
+
+      <article class="benefit-card">
+
+        <span>
+          🎯
+        </span>
+
+        <h3>
+          Mais prática
+        </h3>
+
+        <p>
+          Continue praticando através
+          de exercícios e desafios.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- ASSINATURA -->
+
+  <section class="premium-cta">
+
+    <div>
+
+      <span class="premium-label">
+        ELDERENGLISH PREMIUM
+      </span>
+
+      <h2>
+        Pronto para continuar praticando?
+      </h2>
+
+      <p>
+        Tenha acesso aos conteúdos extras
+        do ElderEnglish.
+      </p>
+
+    </div>
+
+    <button class="subscribe-button">
+      ⭐ Assinar Premium
+    </button>
+
+  </section>
+
+
+  <!-- RODAPÉ -->
+
+  <footer class="premium-footer">
+
+    <a routerLink="/">
+      ← Voltar para o início
+    </a>
+
+    <a routerLink="/privacy">
+      Política de Privacidade
+    </a>
+
+  </footer>
+
+</main>

@@ -1,1 +1,216 @@
-<p>quizz works!</p>
+<main class="quiz-page">
+
+  <header class="quiz-header">
+
+    <a
+      routerLink="/english"
+      class="back-link"
+    >
+      ← Voltar para o aprendizado
+    </a>
+
+    <span class="tag">
+      ELDERENGLISH
+    </span>
+
+    <h1>
+      📝 Quiz de inglês
+    </h1>
+
+    <p>
+      Teste seus conhecimentos sobre as aulas
+      de inglês que você estudou.
+    </p>
+
+  </header>
+
+
+  <section
+    class="quiz-card"
+    *ngIf="!quizFinalizado"
+  >
+
+    <div class="quiz-progress">
+
+      <span>
+        Pergunta
+        {{ perguntaAtual + 1 }}
+        de
+        {{ perguntas.length }}
+      </span>
+
+      <div class="progress-bar">
+
+        <div
+          class="progress-fill"
+          [style.width.%]="
+            ((perguntaAtual + 1) /
+            perguntas.length) * 100
+          "
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="question">
+
+      <span class="question-number">
+        QUESTÃO {{ perguntaAtual + 1 }}
+      </span>
+
+      <h2>
+        {{ perguntas[perguntaAtual].pergunta }}
+      </h2>
+
+    </div>
+
+
+    <div class="options">
+
+      <button
+        *ngFor="
+          let opcao of perguntas[perguntaAtual].opcoes;
+          let i = index
+        "
+        class="option"
+        [class.selected]="
+          respostasSelecionadas[perguntaAtual] === i
+        "
+        (click)="selecionarResposta(i)"
+      >
+
+        <span class="option-letter">
+          {{ ['A', 'B', 'C', 'D'][i] }}
+        </span>
+
+        <span>
+          {{ opcao }}
+        </span>
+
+      </button>
+
+    </div>
+
+
+    <div class="quiz-navigation">
+
+      <button
+        class="secondary-button"
+        (click)="perguntaAnterior()"
+        [disabled]="perguntaAtual === 0"
+      >
+        ← Anterior
+      </button>
+
+      <button
+        class="primary-button"
+        (click)="proximaPergunta()"
+        [disabled]="
+          respostasSelecionadas[perguntaAtual] === undefined
+        "
+      >
+
+        {{
+          perguntaAtual === perguntas.length - 1
+            ? 'Finalizar quiz'
+            : 'Próxima pergunta →'
+        }}
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section
+    class="result-card"
+    *ngIf="quizFinalizado"
+  >
+
+    <div class="result-icon">
+      🎉
+    </div>
+
+    <span class="tag">
+      RESULTADO
+    </span>
+
+    <h2>
+      Quiz concluído!
+    </h2>
+
+    <p>
+      Você acertou
+      <strong>
+        {{ quantidadeAcertos }}
+      </strong>
+      de
+      <strong>
+        {{ perguntas.length }}
+      </strong>
+      perguntas.
+    </p>
+
+    <div class="score">
+
+      <strong>
+        {{ porcentagem }}%
+      </strong>
+
+      <span>
+        de aproveitamento
+      </span>
+
+    </div>
+
+    <div class="result-message">
+
+      <p *ngIf="porcentagem >= 80">
+        ⭐ Excelente!
+        Você está indo muito bem.
+        Continue praticando inglês.
+      </p>
+
+      <p
+        *ngIf="
+          porcentagem >= 50 &&
+          porcentagem < 80
+        "
+      >
+        👍 Muito bem!
+        Continue estudando e praticando
+        para melhorar ainda mais.
+      </p>
+
+      <p *ngIf="porcentagem < 50">
+        📚 Continue praticando!
+        Revise as aulas e tente novamente.
+      </p>
+
+    </div>
+
+
+    <div class="result-buttons">
+
+      <button
+        class="primary-button"
+        (click)="reiniciarQuiz()"
+      >
+        🔄 Refazer quiz
+      </button>
+
+      <a
+        routerLink="/english"
+        class="secondary-button"
+      >
+        ← Voltar para o aprendizado
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
