@@ -6,16 +6,15 @@ import { Tutorials } from './tutorials/tutorials';
 import { Privacy } from './privacy/privacy';
 import { Login } from './login/login';
 import { Progress } from './progress/progress';
-import { Premium } from './premium/premium';
 import { Register } from './register/register';
 import { Quizz } from './quizz/quizz';
 
 export const routes: Routes = [
 
-    {
-  path: '',
-  component: Home
-},
+  {
+    path: '',
+    component: Home
+  },
 
   {
     path: 'english',
@@ -43,18 +42,18 @@ export const routes: Routes = [
   },
 
   {
+    path: 'register',
+    component: Register
+  },
+
+  {
     path: 'quiz',
     component: Quizz
   },
 
   {
-    path: 'premium',
-    component: Premium
-  },
-
-  {
-    path: 'register',
-    component: Register
+    path: '**',
+    redirectTo: ''
   }
 
 ];

@@ -17,11 +17,16 @@
 
     </div>
 
+
     <form (ngSubmit)="cadastrar()">
+
+      <!-- NOME -->
 
       <div class="form-group">
 
-        <label for="nome">Nome</label>
+        <label for="nome">
+          Nome
+        </label>
 
         <input
           id="nome"
@@ -33,9 +38,14 @@
 
       </div>
 
+
+      <!-- E-MAIL -->
+
       <div class="form-group">
 
-        <label for="email">E-mail</label>
+        <label for="email">
+          E-mail
+        </label>
 
         <input
           id="email"
@@ -47,9 +57,14 @@
 
       </div>
 
+
+      <!-- SENHA -->
+
       <div class="form-group">
 
-        <label for="senha">Senha</label>
+        <label for="senha">
+          Senha
+        </label>
 
         <input
           id="senha"
@@ -60,6 +75,9 @@
         >
 
       </div>
+
+
+      <!-- CONFIRMAR SENHA -->
 
       <div class="form-group">
 
@@ -77,6 +95,9 @@
 
       </div>
 
+
+      <!-- TERMOS -->
+
       <div class="termos">
 
         <label>
@@ -88,21 +109,34 @@
           >
 
           <span>
+
             Li e aceito os
-            <strong>Termos de Uso</strong>
+
+            <strong>
+              Termos de Uso
+            </strong>
+
             e a
+
             <a routerLink="/privacy">
               Política de Privacidade
             </a>.
+
           </span>
 
         </label>
 
       </div>
 
+
+      <!-- BOTÃO -->
+
       <button type="submit">
         Criar conta
       </button>
+
+
+      <!-- MENSAGEM -->
 
       <p
         class="mensagem"
@@ -114,6 +148,9 @@
       </p>
 
     </form>
+
+
+    <!-- LOGIN -->
 
     <div class="login-link">
 

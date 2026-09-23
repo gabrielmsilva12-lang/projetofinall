@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-privacy',
+  selector: 'app-security',
   imports: [
     CommonModule,
     RouterLink
   ],
-  templateUrl: './privacy.html',
-  styleUrl: './privacy.css'
+  templateUrl: './ss.html',
+  styleUrl: './security.css'
 })
-export class Privacy {
+export class Security {
 
 }

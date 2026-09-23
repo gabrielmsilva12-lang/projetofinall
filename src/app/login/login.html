@@ -8,7 +8,9 @@
         ELDERENGLISH
       </span>
 
-      <h1>Entrar</h1>
+      <h1>
+        Entrar
+      </h1>
 
       <p>
         Entre na sua conta para acessar todo o conteúdo.
@@ -16,7 +18,10 @@
 
     </div>
 
+
     <form (ngSubmit)="entrar()">
+
+      <!-- E-MAIL -->
 
       <div class="form-group">
 
@@ -34,6 +39,9 @@
 
       </div>
 
+
+      <!-- SENHA -->
+
       <div class="form-group">
 
         <label for="senha">
@@ -50,18 +58,29 @@
 
       </div>
 
+
+      <!-- BOTÃO -->
+
       <button type="submit">
         Entrar
       </button>
 
+
+      <!-- MENSAGEM -->
+
       <p
         class="mensagem"
+        [class.erro]="tipoMensagem === 'erro'"
+        [class.sucesso]="tipoMensagem === 'sucesso'"
         *ngIf="mensagem"
       >
         {{ mensagem }}
       </p>
 
     </form>
+
+
+    <!-- CADASTRO -->
 
     <div class="cadastro-link">
 
@@ -71,6 +90,17 @@
 
       <a routerLink="/register">
         Criar uma conta
+      </a>
+
+    </div>
+
+
+    <!-- VOLTAR -->
+
+    <div class="voltar">
+
+      <a routerLink="/">
+        ← Voltar para o início
       </a>
 
     </div>

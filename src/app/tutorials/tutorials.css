@@ -1,0 +1,274 @@
+.tutorials-page {
+  min-height: 100vh;
+  padding: 50px 30px;
+  background: #f4f7fb;
+  color: #222;
+}
+
+.page-header {
+  max-width: 850px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.tag {
+  color: #0066cc;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.page-header h1 {
+  margin: 12px 0;
+  font-size: 38px;
+}
+
+.page-header p {
+  color: #666;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+/* SELETOR */
+
+.tutorial-selector {
+  max-width: 850px;
+  margin: 0 auto 30px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.tutorial-selector button {
+  padding: 20px;
+
+  border: 2px solid #dfe5ec;
+  border-radius: 14px;
+
+  background: white;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tutorial-selector button:hover {
+  border-color: #0066cc;
+}
+
+.tutorial-selector button.active {
+  border-color: #0066cc;
+  background: #eaf3ff;
+  color: #0066cc;
+}
+
+.tutorial-selector button span {
+  margin-right: 8px;
+  font-size: 24px;
+}
+
+
+/* CONTEÚDO */
+
+.tutorial-content {
+  max-width: 850px;
+  margin: 0 auto;
+
+  padding: 35px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+
+/* TÍTULO */
+
+.tutorial-title {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.tutorial-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 70px;
+  height: 70px;
+
+  background: #eaf3ff;
+
+  border-radius: 16px;
+
+  font-size: 38px;
+}
+
+.tutorial-title h2 {
+  margin: 0 0 8px;
+
+  font-size: 28px;
+}
+
+.tutorial-title p {
+  margin: 0;
+
+  color: #666;
+
+  line-height: 1.5;
+}
+
+
+/* PASSOS */
+
+.steps {
+  margin-top: 30px;
+}
+
+.steps h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 15px;
+  padding: 15px;
+
+  background: #f7f9fc;
+
+  border-radius: 10px;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  background: #0066cc;
+
+  color: white;
+
+  font-weight: bold;
+}
+
+.step p {
+  margin: 0;
+
+  line-height: 1.5;
+}
+
+
+/* DICA */
+
+.example-box {
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 30px;
+  padding: 20px;
+
+  background: #fff8e1;
+
+  border-radius: 12px;
+}
+
+.example-box > span {
+  font-size: 25px;
+}
+
+.example-box strong {
+  display: block;
+
+  margin-bottom: 6px;
+}
+
+.example-box p {
+  margin: 0;
+
+  line-height: 1.5;
+}
+
+
+/* VOLTAR */
+
+.back-home {
+  max-width: 850px;
+
+  margin: 30px auto;
+
+  text-align: center;
+}
+
+.back-home a {
+  color: #0066cc;
+
+  font-weight: bold;
+
+  text-decoration: none;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 700px) {
+
+  .tutorials-page {
+    padding: 30px 15px;
+  }
+
+  .page-header h1 {
+    font-size: 30px;
+  }
+
+  .tutorial-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-content {
+    padding: 25px;
+  }
+
+  .tutorial-title {
+    align-items: flex-start;
+  }
+
+  .tutorial-icon {
+    min-width: 55px;
+    height: 55px;
+
+    font-size: 28px;
+  }
+
+  .tutorial-title h2 {
+    font-size: 23px;
+  }
+
+  .step {
+    align-items: flex-start;
+  }
+
+}

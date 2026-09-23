@@ -1,1 +1,243 @@
-<p>progress works!</p>
+<main class="progress-page">
+
+  <header class="progress-header">
+
+    <a
+      routerLink="/"
+      class="back-link"
+    >
+      ← Voltar para o início
+    </a>
+
+    <span class="tag">
+      ELDERENGLISH
+    </span>
+
+    <h1>
+      Seu progresso
+    </h1>
+
+    <p>
+      Acompanhe sua evolução no aprendizado de inglês.
+    </p>
+
+  </header>
+
+
+  <!-- RESUMO -->
+
+  <section class="progress-summary">
+
+    <div class="progress-circle">
+
+      <strong>
+        {{ porcentagem }}%
+      </strong>
+
+      <span>
+        concluído
+      </span>
+
+    </div>
+
+
+    <div class="summary-info">
+
+      <h2>
+        Continue aprendendo!
+      </h2>
+
+      <p>
+        Você já concluiu
+        <strong>
+          {{ aulasConcluidasQuantidade }}
+        </strong>
+        de
+        <strong>
+          {{ aulas.length }}
+        </strong>
+        aulas.
+      </p>
+
+      <div class="progress-bar">
+
+        <div
+          class="progress-fill"
+          [style.width.%]="porcentagem"
+        ></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ESTATÍSTICAS -->
+
+  <section class="stats">
+
+    <div class="stat-card">
+
+      <span class="stat-icon">
+        📚
+      </span>
+
+      <strong>
+        {{ aulas.length }}
+      </strong>
+
+      <span>
+        Total de aulas
+      </span>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <span class="stat-icon">
+        ✅
+      </span>
+
+      <strong>
+        {{ aulasConcluidasQuantidade }}
+      </strong>
+
+      <span>
+        Aulas concluídas
+      </span>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <span class="stat-icon">
+        📖
+      </span>
+
+      <strong>
+        {{ aulasRestantes }}
+      </strong>
+
+      <span>
+        Aulas restantes
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- AULAS -->
+
+  <section class="lessons-section">
+
+    <div class="section-title">
+
+      <span class="tag">
+        MINHAS AULAS
+      </span>
+
+      <h2>
+        Acompanhe suas aulas
+      </h2>
+
+      <p>
+        Marque uma aula como concluída quando terminar
+        de estudar seu conteúdo.
+      </p>
+
+    </div>
+
+
+    <div class="lesson-list">
+
+      <article
+        class="lesson-card"
+        *ngFor="
+          let aula of aulas;
+          let i = index
+        "
+        [class.completed]="aulasConcluidas[i]"
+      >
+
+        <div class="lesson-icon">
+          {{ aula.icone }}
+        </div>
+
+
+        <div class="lesson-info">
+
+          <span class="lesson-category">
+            {{ aula.categoria }}
+          </span>
+
+          <h3>
+            {{ aula.titulo }}
+          </h3>
+
+          <p
+            *ngIf="aulasConcluidas[i]"
+            class="completed-text"
+          >
+            ✓ Aula concluída
+          </p>
+
+          <p
+            *ngIf="!aulasConcluidas[i]"
+            class="pending-text"
+          >
+            Aula ainda não concluída
+          </p>
+
+        </div>
+
+
+        <button
+          class="complete-button"
+          [class.completed-button]="aulasConcluidas[i]"
+          (click)="alternarAula(i)"
+        >
+
+          <span *ngIf="!aulasConcluidas[i]">
+            Marcar como concluída
+          </span>
+
+          <span *ngIf="aulasConcluidas[i]">
+            Desmarcar
+          </span>
+
+        </button>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- BOTÃO PARA APRENDER -->
+
+  <section class="continue-section">
+
+    <h2>
+      Quer continuar aprendendo?
+    </h2>
+
+    <p>
+      Volte para as aulas e continue sua jornada
+      no ElderEnglish.
+    </p>
+
+    <a
+      routerLink="/english"
+      class="continue-button"
+    >
+      Continuar aprendendo
+    </a>
+
+  </section>
+
+</main>

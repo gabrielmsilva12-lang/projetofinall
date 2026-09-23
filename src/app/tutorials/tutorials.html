@@ -1,1 +1,124 @@
-<p>tutorials works!</p>
+<main class="tutorials-page">
+
+  <header class="page-header">
+
+    <span class="tag">
+      TECNOLOGIA
+    </span>
+
+    <h1>
+      Aprenda a usar a tecnologia
+    </h1>
+
+    <p>
+      Descubra ferramentas digitais que podem ajudar
+      você no dia a dia.
+    </p>
+
+  </header>
+
+
+  <section class="tutorial-selector">
+
+    <button
+      *ngFor="
+        let tutorial of tutoriais;
+        let i = index
+      "
+      [class.active]="tutorialSelecionado === i"
+      (click)="selecionarTutorial(i)"
+    >
+
+      <span>
+        {{ tutorial.icone }}
+      </span>
+
+      {{ tutorial.titulo }}
+
+    </button>
+
+  </section>
+
+
+  <section class="tutorial-content">
+
+    <div class="tutorial-title">
+
+      <div class="tutorial-icon">
+        {{ tutoriais[tutorialSelecionado].icone }}
+      </div>
+
+      <div>
+
+        <h2>
+          {{ tutoriais[tutorialSelecionado].titulo }}
+        </h2>
+
+        <p>
+          {{ tutoriais[tutorialSelecionado].descricao }}
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="steps">
+
+      <h3>
+        Como fazer
+      </h3>
+
+      <div
+        class="step"
+        *ngFor="
+          let passo of tutoriais[tutorialSelecionado].passos;
+          let i = index
+        "
+      >
+
+        <div class="step-number">
+          {{ i + 1 }}
+        </div>
+
+        <p>
+          {{ passo }}
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="example-box">
+
+      <span>
+        💡
+      </span>
+
+      <div>
+
+        <strong>
+          Dica prática
+        </strong>
+
+        <p>
+          {{ tutoriais[tutorialSelecionado].exemplo }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="back-home">
+
+    <a routerLink="/">
+      ← Voltar para o início
+    </a>
+
+  </section>
+
+</main>

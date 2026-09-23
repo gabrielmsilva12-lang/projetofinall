@@ -4,9 +4,12 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterLink],
+  imports: [
+    CommonModule,
+    RouterLink
+  ],
   templateUrl: './home.html',
-  styleUrls: ['./home.css']
+  styleUrl: './home.css'
 })
 export class Home {
 
@@ -14,36 +17,42 @@ export class Home {
 
   slides = [
     {
-      icon: '✈️',
-      category: 'VIAGEM',
-      title: 'No aeroporto',
-      phrase: 'Where is the bathroom?',
-      translation: 'Onde fica o banheiro?'
+      nome: 'Maria',
+      idade: 67,
+      texto: 'Agora consigo viajar e me comunicar melhor em inglês.'
     },
     {
-      icon: '🏨',
-      category: 'HOTEL',
-      title: 'No hotel',
-      phrase: 'I have a reservation.',
-      translation: 'Eu tenho uma reserva.'
+      nome: 'Carlos',
+      idade: 71,
+      texto: 'Aprendi a usar ferramentas que antes pareciam muito complicadas.'
     },
     {
-      icon: '🍽️',
-      category: 'RESTAURANTE',
-      title: 'No restaurante',
-      phrase: "I'd like a coffee, please.",
-      translation: 'Eu gostaria de um café, por favor.'
-    },
-    {
-      icon: '🛒',
-      category: 'COMPRAS',
-      title: 'Fazendo compras',
-      phrase: 'How much is this?',
-      translation: 'Quanto custa isso?'
+      nome: 'Ana',
+      idade: 64,
+      texto: 'Hoje me sinto muito mais segura usando a internet.'
     }
   ];
 
-  nextSlide() {
+  frases = [
+    {
+      english: 'Where is the bathroom?',
+      portuguese: 'Onde fica o banheiro?'
+    },
+    {
+      english: 'I have a reservation.',
+      portuguese: 'Eu tenho uma reserva.'
+    },
+    {
+      english: "I'd like a coffee, please.",
+      portuguese: 'Eu gostaria de um café, por favor.'
+    },
+    {
+      english: 'How much is this?',
+      portuguese: 'Quanto custa isso?'
+    }
+  ];
+
+  nextSlide(): void {
     if (this.currentSlide < this.slides.length - 1) {
       this.currentSlide++;
     } else {
@@ -51,7 +60,7 @@ export class Home {
     }
   }
 
-  previousSlide() {
+  previousSlide(): void {
     if (this.currentSlide > 0) {
       this.currentSlide--;
     } else {
@@ -59,51 +68,18 @@ export class Home {
     }
   }
 
-  goToSlide(index: number) {
+  goToSlide(index: number): void {
     this.currentSlide = index;
   }
 
+  ouvirPronuncia(frase: string): void {
+    const fala = new SpeechSynthesisUtterance(frase);
 
-  // ========================================
-  // CARROSSEL DE AVALIAÇÕES
-  // ========================================
+    fala.lang = 'en-US';
+    fala.rate = 0.8;
 
-  testimonialSlide: number = 0;
-
-  testimonials = [
-    {
-      image: 'https://i.pravatar.cc/150?img=47',
-      name: 'Maria, 67 anos',
-      role: 'Aluna ElderEnglish',
-      text: 'Agora consigo entender algumas frases em inglês e também aprendi a usar o tradutor do celular.'
-    },
-    {
-      image: 'https://i.pravatar.cc/150?img=12',
-      name: 'João, 71 anos',
-      role: 'Aluno ElderEnglish',
-      text: 'Eu tinha dificuldade com tecnologia. Hoje consigo pesquisar e usar ferramentas digitais sozinho.'
-    },
-    {
-      image: 'https://i.pravatar.cc/150?img=32',
-      name: 'Ana, 64 anos',
-      role: 'Aluna ElderEnglish',
-      text: 'Gostei porque as explicações são simples e consigo estudar no meu próprio ritmo.'
-    }
-  ];
-
-  nextTestimonial(): void {
-    this.testimonialSlide =
-      (this.testimonialSlide + 1) % this.testimonials.length;
-  }
-
-  previousTestimonial(): void {
-    this.testimonialSlide =
-      (this.testimonialSlide - 1 + this.testimonials.length) %
-      this.testimonials.length;
-  }
-
-  goToTestimonial(index: number): void {
-    this.testimonialSlide = index;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(fala);
   }
 
 }
