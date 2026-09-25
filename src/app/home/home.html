@@ -1,7 +1,5 @@
 <main class="home-page">
 
-  <!-- HEADER -->
-
   <header class="home-header">
 
     <div class="logo-area">
@@ -25,6 +23,10 @@
 
       <a routerLink="/tutorials">
         Tecnologia
+      </a>
+
+      <a routerLink="/security">
+        Segurança
       </a>
 
     </nav>
@@ -51,8 +53,6 @@
   </header>
 
 
-  <!-- HERO -->
-
   <section class="hero">
 
     <div class="hero-content">
@@ -75,30 +75,10 @@
         e se comunicar melhor.
       </p>
 
-      <div class="hero-buttons">
-
-        <a
-          routerLink="/english"
-          class="primary-button"
-        >
-          Começar a aprender
-        </a>
-
-        <a
-          routerLink="/tutorials"
-          class="secondary-button"
-        >
-          Conhecer a tecnologia
-        </a>
-
-      </div>
-
     </div>
 
   </section>
 
-
-  <!-- DOIS PILARES -->
 
   <section class="pillars">
 
@@ -121,9 +101,6 @@
 
 
     <div class="pillar-grid">
-
-
-      <!-- APRENDIZADO -->
 
       <article class="pillar-card">
 
@@ -150,8 +127,6 @@
 
       </article>
 
-
-      <!-- TECNOLOGIA -->
 
       <article class="pillar-card">
 
@@ -182,8 +157,6 @@
 
   </section>
 
-
-  <!-- FRASES -->
 
   <section class="phrases-section">
 
@@ -232,8 +205,6 @@
 
   </section>
 
-
-  <!-- DEPOIMENTOS -->
 
   <section class="testimonials">
 
@@ -300,47 +271,35 @@
         "
         [class.active]="currentSlide === i"
         (click)="goToSlide(i)"
-      >
-      </button>
+      ></button>
 
     </div>
 
   </section>
 
-
-  <!-- CTA -->
 
   <section class="final-cta">
 
     <div>
 
       <span class="tag">
-        COMECE AGORA
+        ELDERENGLISH
       </span>
 
       <h2>
-        Sua jornada começa aqui.
+        Aprenda inglês no seu ritmo.
       </h2>
 
       <p>
-        Aprenda inglês e descubra novas maneiras
-        de praticar utilizando a tecnologia.
+        Pratique inglês com situações do dia a dia
+        e descubra como a tecnologia pode ajudar
+        no seu aprendizado.
       </p>
 
     </div>
 
-
-    <a
-      routerLink="/register"
-      class="primary-button"
-    >
-      Criar minha conta
-    </a>
-
   </section>
 
-
-  <!-- FOOTER -->
 
   <footer class="footer">
 
@@ -352,6 +311,10 @@
 
       <p>
         Inglês e tecnologia para mais autonomia.
+      </p>
+
+      <p class="copyright">
+        © 2026 ElderEnglish. Todos os direitos reservados.
       </p>
 
     </div>
@@ -371,8 +334,8 @@
         Tecnologia
       </a>
 
-      <a routerLink="/privacy">
-        Política de Privacidade
+      <a routerLink="/security">
+        Segurança
       </a>
 
       <a routerLink="/login">

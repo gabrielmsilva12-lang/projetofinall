@@ -29,10 +29,6 @@ export class Register {
 
   cadastrar(): void {
 
-    // =========================
-    // 1. NOME
-    // =========================
-
     if (this.nome.trim() === '') {
 
       this.mensagem = 'Digite seu nome.';
@@ -53,10 +49,6 @@ export class Register {
       return;
     }
 
-
-    // =========================
-    // 2. E-MAIL
-    // =========================
 
     if (this.email.trim() === '') {
 
@@ -80,10 +72,6 @@ export class Register {
     }
 
 
-    // =========================
-    // 3. SENHA
-    // =========================
-
     if (this.senha.trim() === '') {
 
       this.mensagem = 'Digite uma senha.';
@@ -102,10 +90,6 @@ export class Register {
       return;
     }
 
-
-    // =========================
-    // 4. CONFIRMAR SENHA
-    // =========================
 
     if (this.confirmarSenha.trim() === '') {
 
@@ -128,10 +112,6 @@ export class Register {
     }
 
 
-    // =========================
-    // 5. TERMOS
-    // =========================
-
     if (!this.aceitouTermos) {
 
       this.mensagem =
@@ -142,10 +122,6 @@ export class Register {
       return;
     }
 
-
-    // =========================
-    // 6. VERIFICAR E-MAIL EXISTENTE
-    // =========================
 
     const usuarioExistente =
       localStorage.getItem('usuario');
@@ -169,10 +145,6 @@ export class Register {
     }
 
 
-    // =========================
-    // 7. CRIAR USUÁRIO
-    // =========================
-
     const novoUsuario = {
 
       nome: this.nome.trim(),
@@ -192,19 +164,11 @@ export class Register {
     );
 
 
-    // =========================
-    // 8. MENSAGEM DE SUCESSO
-    // =========================
-
     this.mensagem =
       'Cadastro realizado com sucesso!';
 
     this.tipoMensagem = 'sucesso';
 
-
-    // =========================
-    // 9. IR PARA LOGIN
-    // =========================
 
     setTimeout(() => {
 

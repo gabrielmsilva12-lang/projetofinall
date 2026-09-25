@@ -25,10 +25,6 @@ export class Login {
 
   entrar(): void {
 
-    // =========================
-    // 1. E-MAIL
-    // =========================
-
     if (this.email.trim() === '') {
 
       this.mensagem = 'Digite seu e-mail.';
@@ -51,10 +47,6 @@ export class Login {
     }
 
 
-    // =========================
-    // 2. SENHA
-    // =========================
-
     if (this.senha.trim() === '') {
 
       this.mensagem = 'Digite sua senha.';
@@ -63,10 +55,6 @@ export class Login {
       return;
     }
 
-
-    // =========================
-    // 3. VERIFICAR CADASTRO
-    // =========================
 
     const usuarioSalvo =
       localStorage.getItem('usuario');
@@ -82,10 +70,6 @@ export class Login {
     }
 
 
-    // =========================
-    // 4. COMPARAR DADOS
-    // =========================
-
     const usuario = JSON.parse(usuarioSalvo);
 
     const emailDigitado =
@@ -95,10 +79,6 @@ export class Login {
       emailDigitado === usuario.email &&
       this.senha === usuario.senha
     ) {
-
-      // =========================
-      // 5. LOGIN REALIZADO
-      // =========================
 
       localStorage.setItem(
         'usuarioLogado',
@@ -121,10 +101,6 @@ export class Login {
 
       this.tipoMensagem = 'sucesso';
 
-
-      // =========================
-      // 6. IR PARA APRENDIZADO
-      // =========================
 
       setTimeout(() => {
 

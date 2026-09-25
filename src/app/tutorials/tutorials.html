@@ -2,17 +2,21 @@
 
   <header class="page-header">
 
+    <a routerLink="/" class="back-link">
+      ← Voltar para o início
+    </a>
+
     <span class="tag">
       TECNOLOGIA
     </span>
 
     <h1>
-      Aprenda a usar a tecnologia
+      Use a tecnologia para aprender inglês
     </h1>
 
     <p>
-      Descubra ferramentas digitais que podem ajudar
-      você no dia a dia.
+      Aprenda a utilizar ferramentas digitais que podem
+      ajudar você a praticar inglês no dia a dia.
     </p>
 
   </header>
@@ -20,22 +24,30 @@
 
   <section class="tutorial-selector">
 
-    <button
-      *ngFor="
-        let tutorial of tutoriais;
-        let i = index
-      "
-      [class.active]="tutorialSelecionado === i"
-      (click)="selecionarTutorial(i)"
-    >
+    <h2>
+      O que você quer aprender?
+    </h2>
 
-      <span>
-        {{ tutorial.icone }}
-      </span>
+    <div class="tutorial-buttons">
 
-      {{ tutorial.titulo }}
+      <button
+        *ngFor="
+          let tutorial of tutoriais;
+          let i = index
+        "
+        [class.active]="tutorialSelecionado === i"
+        (click)="selecionarTutorial(i)"
+      >
 
-    </button>
+        <span>
+          {{ tutorial.icone }}
+        </span>
+
+        {{ tutorial.titulo }}
+
+      </button>
+
+    </div>
 
   </section>
 
@@ -63,7 +75,32 @@
     </div>
 
 
-    <div class="steps">
+    <section class="video-section">
+
+      <div class="video-placeholder">
+
+        <div class="video-icon">
+          ▶
+        </div>
+
+        <h3>
+          {{ tutoriais[tutorialSelecionado].videoTitulo }}
+        </h3>
+
+        <p>
+          {{ tutoriais[tutorialSelecionado].videoDescricao }}
+        </p>
+
+        <span class="video-info">
+          Vídeo tutorial
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <section class="steps">
 
       <h3>
         Como fazer
@@ -87,7 +124,7 @@
 
       </div>
 
-    </div>
+    </section>
 
 
     <div class="example-box">
@@ -113,12 +150,35 @@
   </section>
 
 
-  <section class="back-home">
+  <section class="learning-message">
+
+    <div class="learning-icon">
+      📚
+    </div>
+
+    <div>
+
+      <h2>
+        Tecnologia também pode ajudar no seu inglês
+      </h2>
+
+      <p>
+        Use essas ferramentas para praticar um pouco
+        todos os dias e transformar o inglês em parte
+        da sua rotina.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <div class="back-home">
 
     <a routerLink="/">
       ← Voltar para o início
     </a>
 
-  </section>
+  </div>
 
 </main>
